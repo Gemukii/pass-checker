@@ -1,6 +1,5 @@
 # pass-checker
 
-"""
 Password Strength Checker
 
 This script checks the strength of a password based on the following criteria:
@@ -13,4 +12,4 @@ Usage:
 2. Run the script and enter a password when prompted.
 
 Author: Gemukii
-"""
+
