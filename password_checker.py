@@ -42,11 +42,33 @@ def check_password(password):
     else:
         return "Weak"
 
+# Function to print color
+def color(text, color):
+    colors = {
+        'red': '\033[91m',
+        'green': '\033[92m',
+        'yellow': '\033[93m',
+        'bold': '\033[1m',
+        'underline': '\033[4m',
+        'end': '\033[0m'
+    }
+    color_code = color.get(color.lower(), color['end'])
+    print(f"{color_code}{text}{colors['end']}")
+
 # input pass to test
 if __name__ == "__main__":
     try:
         password = input("Enter a password to check: ")
-        strength = check_password_strength(password)
-        print(f"The password strength is: {strength}")
+        strength = check_password(password)
+        
+# Print level this color 
+        if strength == "Strong":
+            color(f"The password is: {strength}", 'green')
+        elif strength == "Moderate":
+            color(f"The password  is: {strength}", 'yellow')
+        else:
+            color(f"The password  is: {strength}", 'red')
+            
+# Exception            
     except KeyboardInterrupt:
         print("\nPassword checking interrupted.")
