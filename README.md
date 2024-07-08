@@ -15,14 +15,13 @@ Usage:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/password-strength-checker.git
-   cd password-strength-checker
-
+   git clone https://github.com/yourusername/pass-checker.git
+   cd pass-checker
 2. Download the dictionary file you need
 
 3. run the script :
    ```bash
-   python pass-checker.py
+   python pass_checker.py
 
 Author: Gemukii
 
