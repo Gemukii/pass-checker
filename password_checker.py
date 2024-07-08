@@ -2,9 +2,13 @@ import re
 
 # Load the password dictionary
 def load_password_dictionary(file_path):
-    with open(file_path, 'r', encoding='utf-8', errors='ignore') as file:
-        return set(file.read().splitlines())
-
+    try:
+        with open(file_path, 'r', encoding='utf-8', errors='ignore') as file:
+            return set(file.read().splitlines())
+    except FileNotFound:
+        print(f"Error: Password dictionary file '{file_path}' not found.")
+            return set()
+        
 # Path to password dictionary file
 password_dictionary_file = 'rockyou.txt'
 
@@ -19,7 +23,8 @@ def check_password(password):
     lowercase = re.search(r'[a-z]', password) is not None
     sepcial_char = re.search(r'[!@#$%^&*(),.?":{}|<>]', password) is not None
     common_password = password.lower() not in common_passwords
-  
+
+# Strength level 
     if length_criteria and digit_criteria and uppercase_criteria and lowercase_criteria and special_char_criteria and common_password_criteria:
         return "Strong"
     elif length_criteria and (digit_criteria or special_char_criteria) and (uppercase_criteria or lowercase_criteria):
@@ -29,6 +34,9 @@ def check_password(password):
 
 # input pass to test
 if __name__ == "__main__":
-    password = input("Enter a password to check: ")
-    strength = check_password_strength(password)
-    print(f"The password strength is: {strength}")
+    try:
+        password = input("Enter a password to check: ")
+        strength = check_password_strength(password)
+        print(f"The password strength is: {strength}")
+    except KeyboardInterrupt:
+        print("\nPassword checking interrupted.")
