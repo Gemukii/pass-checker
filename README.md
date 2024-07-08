@@ -11,5 +11,18 @@ Usage:
 1. Ensure the (here its : 'rockyou.txt') file is present in the script directory.
 2. Run the script and enter a password when prompted.
 
+## Usage
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/password-strength-checker.git
+   cd password-strength-checker
+
+2. Download the dictionary file you need
+
+3. run the script :
+   ```bash
+   python pass-checker.py
+
 Author: Gemukii
 
