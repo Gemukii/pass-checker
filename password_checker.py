@@ -1,3 +1,15 @@
+"""
+Password checker
+
+This script checks the strength of a password based on the following criteria:
+- Length: Minimum 10 characters
+- Contains at least one digit, uppercase letter, lowercase letter, and special character
+- Not in a common password dictionary (rockyou.txt)
+
+Gemukii
+"""
+
+
 import re
 
 # Load the password dictionary
