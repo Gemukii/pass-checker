@@ -8,8 +8,6 @@ This script checks the strength of a password based on the following criteria:
 
 Gemukii
 """
-
-
 import re
 
 # Load the password dictionary
