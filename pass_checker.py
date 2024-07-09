@@ -17,7 +17,7 @@ def load_password_dictionary(file_path):
             return set(file.read().splitlines())
     except FileNotFound:
         print(f"Error: Password dictionary file '{file_path}' not found.")
-            return set()
+        return set()
         
 # Path to password dictionary file
 password_dictionary_file = 'rockyou.txt'
@@ -31,13 +31,13 @@ def check_password(password):
     digital = re.search(r'\d', password) is not None
     uppercase = re.search(r'[A-Z]', password) is not None
     lowercase = re.search(r'[a-z]', password) is not None
-    sepcial_char = re.search(r'[!@#$%^&*(),.?":{}|<>]', password) is not None
+    special_char = re.search(r'[!@#$%^&*(),.?":{}|<>]', password) is not None
     common_password = password.lower() not in common_passwords
 
 # Strength level 
-    if length_criteria and digit_criteria and uppercase_criteria and lowercase_criteria and special_char_criteria and common_password_criteria:
+    if length and digital and uppercase and lowercase and special_char and common_password:
         return "Strong"
-    elif length_criteria and (digit_criteria or special_char_criteria) and (uppercase_criteria or lowercase_criteria):
+    elif length and (digital or special_char) and (uppercase or lowercase):
         return "Moderate"
     else:
         return "Weak"
@@ -52,7 +52,7 @@ def color(text, color):
         'underline': '\033[4m',
         'end': '\033[0m'
     }
-    color_code = color.get(color.lower(), color['end'])
+    color_code = colors.get(color.lower(), colors['end'])
     print(f"{color_code}{text}{colors['end']}")
 
 # input pass to test
